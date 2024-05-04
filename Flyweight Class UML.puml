@@ -1,0 +1,51 @@
+@startuml
+
+class Document {
+    -characters: List<Character>
+    -propertiesFactory: CharacterPropertiesFactory
+    +addCharacter(c: char, font: String, color: String, size: int): void
+    +editCharacterProperties(index: int, font: String, color: String, size: int): void
+    +saveToFile(filename: String): void
+    +loadFromFile(filename: String): void
+}
+
+class CharacterProperties {
+    -font: String
+    -size: int
+    -color: String
+    +CharacterProperties(font: String, color: String, size: int)
+    +getFont(): String
+    +getColor(): String
+    +getSize(): int
+}
+
+class Character {
+    -character: char
+    -characterProperty: CharacterProperties
+    +Character(character: char, characterProperty: CharacterProperties)
+    +setCharacter(character: char)
+    +setCharacterProperty(characterProperty: CharacterProperties)
+    +getCharacter(): char
+    +getFont(): String
+    +getColor(): String
+    +getSize(): int
+}
+
+class CharacterPropertiesFactory {
+    -flyweights: Map<String, CharacterProperties>
+    +setAndRetreiveFlyweightCharacterProperties(font: String, color: String, size: int): CharacterProperties
+    +sizeOfMap(): int
+}
+
+class Driver {
+    +static void main(String[] args)
+}
+
+Driver -- Document
+Character --> CharacterProperties
+CharacterProperties --* CharacterPropertiesFactory
+Document --> CharacterPropertiesFactory
+
+
+
+@enduml

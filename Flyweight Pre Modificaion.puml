@@ -1,0 +1,106 @@
+@startuml
+
+object Document
+object CharacterFactory
+
+object Char1 {
+font = Arial
+color = Black
+size = 16
+}
+
+object Char2 {
+font = Arial
+color = Black
+size = 14
+}
+
+object Char3 {
+font = Verdana
+color = Blue
+size = 18
+}
+
+object Char4 {
+font = Verdana
+color = Blue
+size = 12
+}
+
+object DocChar1 {
+value = 'H'
+}
+
+object DocChar2 {
+value = 'e'
+}
+
+object DocChar3 {
+value = 'l'
+}
+
+object DocChar4 {
+value = 'l'
+}
+
+object DocChar5 {
+value = 'o'
+}
+
+object DocChar6 {
+value = 'W'
+}
+
+object DocChar7 {
+value = 'o'
+}
+
+object DocChar8 {
+value = 'r'
+}
+
+object DocChar9 {
+value = 'l'
+}
+
+object DocChar10 {
+value = 'd'
+}
+
+object DocChar11 {
+value = '5'
+}
+
+object DocChar12 {
+value = '8'
+}
+
+object DocChar13 {
+value = '0'
+}
+
+object DocChar14 {
+value = '0'
+}
+
+CharacterFactory --* Char1
+CharacterFactory --* Char2
+CharacterFactory --* Char3
+Document --* DocChar1
+Document --* DocChar2
+Document --* DocChar3
+Document --* DocChar4
+Document --* DocChar5
+Document --* DocChar6
+Document --* DocChar7
+Document --* DocChar8
+Document --* DocChar9
+Document --* DocChar10
+Document --* DocChar11
+Document --* DocChar12
+Document --* DocChar13
+Document --* DocChar14
+
+Document --> CharacterFactory
+
+@enduml
